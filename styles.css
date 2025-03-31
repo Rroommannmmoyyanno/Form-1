@@ -1,0 +1,380 @@
+body { 
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #2C3E50, #34495E);
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor de imagen y formulario */
+.image-container {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Imagen de fondo */
+
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Formulario sobre la imagen */
+
+
+.form-overlay {
+    background-color: rgba(44, 62, 80, 0.85); /* Menos opacidad */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 25px;
+    border-radius: 12px;
+    width: 90%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos del formulario */
+.form-overlay label {
+    font-size: 15px;
+    font-weight: 1000;
+    color: #2C3E50;
+    text-align: left;
+    display: block;
+}
+
+/* Inputs y Select */
+.form-overlay input, .form-overlay select {
+    width: 70%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #2C3E50;
+    border-radius: 8px;
+    font-size: 16px;
+    background: white;
+    color: #2C3E50;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-overlay input:focus, .form-overlay select:focus {
+    border-color: #1ABC9C;
+    box-shadow: 0px 0px 8px rgba(26, 188, 156, 0.6);
+}
+
+/* Botón */
+.form-overlay button {
+    background: #1ABC9C;
+    color: white;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.form-overlay button:hover {
+    background: #16A085;
+    box-shadow: 0px 4px 10px rgba(26, 188, 156, 0.6);
+}
+
+/* Estilos de títulos */
+.university-name {
+    font-size: 48px;
+    font-weight: bold;
+    font-family: 'Georgia', serif;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subtext {
+    font-size: 22px;
+    font-weight: normal;
+    text-transform: none;
+    margin-top: -8px;
+    opacity: 0.8;
+}
+
+/* Estilo del título de examen */
+.exam-title {
+    font-size: 24px;
+    font-weight: normal;
+    color: white;
+    text-align: center;
+    margin-top: -10px;
+}
+
+
+
+/* Estilos generales del formulario */
+form {
+    background-color: #1C2833;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin: 30px auto; /* Centra el formulario */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Etiquetas */
+form label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: left;
+    display: block;
+    margin-top: 10px;
+}
+
+/* Inputs y select */
+form input, form select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 2px solid #566573;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #ffffff;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+/* Mejora la apariencia del input de fecha */
+form input[type="date"] {
+    appearance: none; /* Quita el estilo por defecto en algunos navegadores */
+    -webkit-appearance: none;
+    padding: 10px;
+    background: #2C3E50 url('https://cdn-icons-png.flaticon.com/512/747/747310.png') no-repeat right 10px center;
+    background-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Cambia el color del calendario cuando el usuario interactúa */
+form input[type="date"]:focus {
+    border-color: #1ABC9C;
+    box-shadow: 0px 0px 8px rgba(26, 188, 156, 0.6);
+}
+
+
+    
+    .form-overlay button {
+        background: #1ABC9C;
+        color: white;
+        padding: 12px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 8px;
+        transition: 0.3s;
+    }
+    
+    .form-overlay button:hover {
+        background: #16A085;
+        box-shadow: 0px 4px 10px rgba(26, 188, 156, 0.6);
+    }
+    
+    /* Botón dentro de un formulario general */
+    form button {
+        background: #16A085;
+        color: white;
+        padding: 12px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 8px;
+        margin-top: 15px;
+        transition: 0.3s;
+    }
+    
+    
+/*crrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+rrrrrrrrrrrrrrrrrrrr
+
+
+
+
+
+
+
+rrrrr
+
+
+
+
+
+
+
+rrrrrrrrrrrrrrrrr */
+
+.select2-container {
+    width: 100% !important; /* Ajusta el ancho al 100% del contenedor */
+    font-family: 'Poppins', sans-serif; /* Fuente moderna */
+    font-size: 16px; /* Tamaño de texto adecuado */
+}
+
+.select2-container--default .select2-selection--single {
+    background-color: #2C3E50; /* Fondo oscuro */
+    border: 2px solid #566573; /* Borde inicial */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 8px 12px; /* Espaciado interno */
+    color: white; /* Color del texto inicial */
+    height: 65px; /* Altura del campo */
+    line-height: 1.5; /* Altura de línea */
+    transition: all 0.3s ease; /* Transición suave */
+}
+
+.select2-container--default .select2-selection--single {
+    height: 50px; /* Ajusta la altura */
+    line-height: 50px; /* Asegura que el texto esté centrado verticalmente */
+    padding: 0 12px; /* Ajusta el espaciado interno */
+}
+
+/* Estilo para el dropdown (lista de opciones) */
+.select2-container--default .select2-results__options {
+    background-color: #34495E; /* Fondo de la lista */
+    border-radius: 8px; /* Bordes redondeados */
+    max-height: 300px; /* Altura máxima para la lista */
+    overflow-y: auto; /* Habilita el scroll */
+    scroll-behavior: smooth; /* Desplazamiento suave */
+}
+
+
+
+.select2-container {
+    width: 100% !important; /* Asegura que el buscador tenga buen ancho */
+}
+
+.select2-selection {
+    height: 40px; /* Ajusta la altura */
+    padding: 5px;
+    font-size: 16px;}
+
+/* Estilo para cada opción dentro del dropdown */
+.select2-container--default .select2-results__option {
+    padding: 12px; /* Relleno para las opciones */
+    color: white; /* Color de texto */
+    font-size: 16px; /* Tamaño de texto de las opciones */
+    transition: background-color 0.3s ease; /* Transición suave al pasar el mouse */
+}
+
+.select2-container--default .select2-results__option:hover {
+    background-color: #1ABC9C; /* Fondo verde al pasar el mouse */
+    cursor: pointer; /* Cambia el cursor */
+}
+
+/* Estilo de la búsqueda dentro del select2 */
+.select2-container--default .select2-search--inline .select2-search__field {
+    background-color: #34495E; /* Fondo de la barra de búsqueda */
+    border: none; /* Sin borde */
+    color: white; /* Color del texto */
+    padding: 8px 12px; /* Relleno para comodidad */
+    border-radius: 8px; /* Bordes redondeados */
+    width: 100%; /* Hace que ocupe todo el ancho */
+    box-sizing: border-box; /* Asegura que el relleno no afecte el tamaño */
+}
+
+/* Asegurarse de que el placeholder sea visible */
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+    color: #EAECEE; /* Color claro para el placeholder */
+    font-size: 14px; /* Tamaño del placeholder */
+    font-style: italic; /* Opcional: estilo cursivo */
+}
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+    color: #EAECEE; /* Color claro para el placeholder */
+    font-size: 14px; /* Tamaño del texto */
+    font-style: italic; /* Opcional: estilo cursivo */
+}
+
+.select2-container {
+    width: 100% !important; /* Ajusta el ancho al 100% del contenedor */
+}
+
+    form button:hover {
+        background: #138D75;
+        box-shadow: 0px 4px 10px rgba(26, 188, 156, 0.6);
+    }
+    form label {  font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+        color: white !important; /* Asegura que el texto sea blanco */
+    }
+    * Inputs y selects generales */
+form input, form select {
+    background: #ffffff; /* Fondo oscuro */
+    color: #2C3E50; /* Texto blanco */
+}
+
+/* Inputs y selects específicos dentro de .form-overlay */
+.form-overlay input, .form-overlay select {
+    background: #ffffff; /* Fondo oscuro */
+    color: #2C3E50; /* Texto blanco */
+}
+
+/* Estilo para cada opción dentro del dropdown */
+.select2-container--default .select2-results__option {
+    padding: 12px; /* Relleno para las opciones */
+    color: white; /* Color de texto */
+    font-size: 16px; /* Tamaño de texto de las opciones */
+    transition: background-color 0.3s ease; /* Transición suave al pasar el mouse */
+}
+
+.select2-container--default .select2-results__option--highlighted {
+    background-color: #1ABC9C; /* Fondo verde para la opción seleccionada */
+    color: white; /* Texto blanco */
+}
+
+
+/* From Uiverse.io by Javierrocadev */ 
+.card {
+    width: 250px;
+    height: 290px;
+    border-radius: 15px;
+    background: rgb(27, 26, 26);
+    color: white;
+    font-weight: 600;
+    font-size: 1.2em;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: -5px 5px 1px 0px #004d92;
+  }
+  
+  .element {
+    color: grey;
+    font-size: .8em;
+    padding: 6px 15px;
+    border-left: 2px solid grey;
+    cursor: pointer;
+  }
+  
+  .active {
+    background-color: #004d92;
+    border-left: 2px solid #8cb4ff;
+    color: azure;
+  }
+  
+  .element:hover:not(.active) {
+    color: #3775bb;
+  }
