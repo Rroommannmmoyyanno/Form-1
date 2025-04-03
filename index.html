@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Registration Form</title>
     <!-- Estilos -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
@@ -19,30 +25,57 @@
       <span class="unr">UNR</span>
       <span class="subtext">Universidad Nacional de Rosario</span>
     </h1>
-    <h2 class="exam-title">Instituto Politécnico Superior 'Gral. San Martín'.</h2>
+    <h2 class="exam-title">
+      Instituto Politécnico Superior 'Gral. San Martín'.
+    </h2>
 
-    <!-- Contenedor con la imagen de fondo y formulario encima -->
     <div class="image-container">
-      <img src="https://fcpolit.unr.edu.ar/wp-content/uploads/2022/11/WhatsApp-Image-2022-11-07-at-11.34.04-1024x576.jpeg" alt="Imagen de fondo">
+      <img
+        src="https://fcpolit.unr.edu.ar/wp-content/uploads/2022/11/WhatsApp-Image-2022-11-07-at-11.34.04-1024x576.jpeg"
+        alt="Imagen de fondo"
+      />
       <div class="form-overlay">
         <h2>Inscripción a Mesas de Examen</h2>
         <form>
           <label for="nombre">Nombre Completo:</label>
-          <input type="text" id="nombre" name="nombre" required>
+          <input type="text" id="nombre" name="nombre" required />
 
           <label for="dni">DNI:</label>
-          <input type="text" id="dni" name="dni" required>
+          <input type="text" id="dni" name="dni" required />
 
           <label for="materia">Selecciona la materia:</label>
-          <select id="materia" name="materia">
-              <option></option> <!-- Opción vacía para el placeholder -->
-              <option value="matematica">Matemática</option>
-              <option value="historia">Historia</option>
-              <option value="programacion">Programación</option>
+          <select id="materia" name="materia" required>
+            <option></option>
+            <!-- Placeholder vacío -->
+            <option value="matematica">Matemática</option>
+            <option value="fisica">Física</option>
+            <option value="quimica">Química</option>
+            <option value="biologia">Biología</option>
+            <option value="historia">Historia</option>
+            <option value="geografia">Geografía</option>
+            <option value="literatura">Literatura</option>
+            <option value="ingles">Inglés</option>
+            <option value="arte">Arte</option>
+            <option value="informatica">Informática</option>
           </select>
-
           <label for="fecha">Selecciona la Fecha del Examen:</label>
-          <input type="text" id="fecha" name="fecha" required>
+          <input
+            type="text"
+            id="fecha"
+            name="fecha"
+            required
+            placeholder="Cargando fecha..."
+          />
+
+          <script>
+            // Obtiene la fecha actual en formato YYYY-MM-DD
+            const hoy = new Date().toISOString().split("T")[0];
+
+            // Establece la fecha actual como placeholder del input
+            document
+              .getElementById("fecha")
+              .setAttribute("placeholder", ` ${hoy}`);
+          </script>
 
           <button type="submit">Inscribirse</button>
         </form>

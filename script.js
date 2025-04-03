@@ -1,38 +1,20 @@
-       // Inicializa el DOM cuando esté completamente cargado
-        document.addEventListener("DOMContentLoaded", function () {
-            // Inicializa Flatpickr si está disponible
-            if (typeof flatpickr !== "undefined") {
-                flatpickr("#fecha", {
-                    dateFormat: "Y-m-d",  // Formato de fecha (Año-Mes-Día)
-                    maxDate: "today",     // No permite fechas futuras
-                    minDate: "2020-01-01", // Fecha mínima permitida
-                    locale: "es"          // Idioma en español
-                });
-            } else {
-                console.error("Flatpickr no se ha cargado correctamente.");
-            }
+document.addEventListener("DOMContentLoaded", function () {
+  // Configuración de Flatpickr para el campo de fecha
+  flatpickr("#fecha", {
+    dateFormat: "Y-m-d", // Formato de fecha (YYYY-MM-DD)
+    minDate: "today", // Deshabilita fechas pasadas
+    maxDate: new Date().fp_incr(547), // Permite seleccionar hasta 1 año y medio (547 días)
+    locale: "es", // Configuración de idioma en español
+    altInput: true, // Muestra un campo alternativo con formato legible
+    altFormat: "d-m-Y", // Formato alternativo (DD-MM-YYYY)
+  });
 
-            // Inicializa Select2 si jQuery y Select2 están disponibles
-            if (typeof $ !== "undefined" && $.fn.select2) {
-                $('#materia').select2({
-                    placeholder: "Selecciona una materia", // Texto de ayuda
-                    allowClear: true // Permite limpiar la selección
-                });
-            } else {
-                console.error("Select2 no se ha cargado correctamente.");
-            }
-
-            // Agrega dinámicamente opciones al select (si es necesario)
-            const materias = ["Matemática", "Historia", "Programación", "Física", "Química"];
-            const selectMateria = document.getElementById("materia");
-
-            if (selectMateria) {
-                materias.forEach(materia => {
-                    const option = document.createElement("option");
-                    option.value = materia.toLowerCase(); // Valor en minúsculas
-                    option.textContent = materia; // Texto visible
-                    selectMateria.appendChild(option);
-                });
-            }
-        });
-   
+  // Configuración de Select2 para el campo de materias
+  if (typeof $ !== "undefined" && $.fn.select2) {
+    $("#materia").select2({
+      placeholder: "Selecciona una materia",
+      allowClear: true,
+      width: "100%", // Asegura que el select ocupe todo el ancho disponible
+    });
+  }
+});
