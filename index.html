@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <title>Registration Form</title>
     <!-- Estilos -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
@@ -14,6 +13,7 @@
       href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
       rel="stylesheet"
     />
+
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
@@ -29,6 +29,7 @@
       Instituto Politécnico Superior 'Gral. San Martín'.
     </h2>
 
+    <!-- Contenedor con la imagen de fondo y formulario encima -->
     <div class="image-container">
       <img
         src="https://fcpolit.unr.edu.ar/wp-content/uploads/2022/11/WhatsApp-Image-2022-11-07-at-11.34.04-1024x576.jpeg"
@@ -58,30 +59,82 @@
             <option value="arte">Arte</option>
             <option value="informatica">Informática</option>
           </select>
+
           <label for="fecha">Selecciona la Fecha del Examen:</label>
-          <input
-            type="text"
-            id="fecha"
-            name="fecha"
-            required
-            placeholder="Cargando fecha..."
-          />
-
-          <script>
-            // Obtiene la fecha actual en formato YYYY-MM-DD
-            const hoy = new Date().toISOString().split("T")[0];
-
-            // Establece la fecha actual como placeholder del input
-            document
-              .getElementById("fecha")
-              .setAttribute("placeholder", ` ${hoy}`);
-          </script>
+          <input type="text" id="fecha" name="fecha" required />
 
           <button type="submit">Inscribirse</button>
         </form>
       </div>
     </div>
 
+    <!-- Agrega el archivo JS justo antes de cerrar el body -->
     <script src="script.js"></script>
+
+    <style>
+      .image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .image-container img {
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+        object-fit: cover;
+        margin-bottom: 20px;
+      }
+
+      .form-overlay {
+        width: 100%;
+        max-width: 400px;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+      }
+
+      form input,
+      form select,
+      form button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        box-sizing: border-box;
+      }
+
+      h1.university-name,
+      h2.exam-title {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .form-overlay {
+          padding: 15px; /* Reduce el padding en pantallas pequeñas */
+        }
+
+        form input,
+        form select,
+        form button {
+          font-size: 14px; /* Reduce el tamaño de fuente */
+          padding: 8px; /* Reduce el espaciado interno */
+        }
+
+        h1.university-name,
+        h2.exam-title {
+          font-size: 18px; /* Reduce el tamaño de los títulos */
+          text-align: center; /* Centra los títulos */
+        }
+      }
+    </style>
   </body>
 </html>

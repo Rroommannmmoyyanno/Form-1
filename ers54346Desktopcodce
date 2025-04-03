@@ -1,0 +1,310 @@
+[33mcommit 8965d5a559328d91db6517c2894ddf5e4c8c4b2e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Rroommannmmoyyanno <romanmoyano14@gmail.com>
+Date:   Thu Apr 3 18:06:27 2025 -0300
+
+    Inicialización del proyecto con Flatpickr y Select2
+
+[1mdiff --git a/script.js b/script.js[m
+[1mindex b2f27e6..3384193 100644[m
+[1m--- a/script.js[m
+[1m+++ b/script.js[m
+[36m@@ -1,38 +1,20 @@[m
+[31m-       // Inicializa el DOM cuando esté completamente cargado[m
+[31m-        document.addEventListener("DOMContentLoaded", function () {[m
+[31m-            // Inicializa Flatpickr si está disponible[m
+[31m-            if (typeof flatpickr !== "undefined") {[m
+[31m-                flatpickr("#fecha", {[m
+[31m-                    dateFormat: "Y-m-d",  // Formato de fecha (Año-Mes-Día)[m
+[31m-                    maxDate: "today",     // No permite fechas futuras[m
+[31m-                    minDate: "2020-01-01", // Fecha mínima permitida[m
+[31m-                    locale: "es"          // Idioma en español[m
+[31m-                });[m
+[31m-            } else {[m
+[31m-                console.error("Flatpickr no se ha cargado correctamente.");[m
+[31m-            }[m
+[32m+[m[32mdocument.addEventListener("DOMContentLoaded", function () {[m
+[32m+[m[32m  // Configuración de Flatpickr para el campo de fecha[m
+[32m+[m[32m  flatpickr("#fecha", {[m
+[32m+[m[32m    dateFormat: "Y-m-d", // Formato de fecha (YYYY-MM-DD)[m
+[32m+[m[32m    minDate: "today", // Deshabilita fechas pasadas[m
+[32m+[m[32m    maxDate: new Date().fp_incr(547), // Permite seleccionar hasta 1 año y medio (547 días)[m
+[32m+[m[32m    locale: "es", // Configuración de idioma en español[m
+[32m+[m[32m    altInput: true, // Muestra un campo alternativo con formato legible[m
+[32m+[m[32m    altFormat: "d-m-Y", // Formato alternativo (DD-MM-YYYY)[m
+[32m+[m[32m  });[m
+ [m
+[31m-            // Inicializa Select2 si jQuery y Select2 están disponibles[m
+[31m-            if (typeof $ !== "undefined" && $.fn.select2) {[m
+[31m-                $('#materia').select2({[m
+[31m-                    placeholder: "Selecciona una materia", // Texto de ayuda[m
+[31m-                    allowClear: true // Permite limpiar la selección[m
+[31m-                });[m
+[31m-            } else {[m
+[31m-                console.error("Select2 no se ha cargado correctamente.");[m
+[31m-            }[m
+[31m-[m
+[31m-            // Agrega dinámicamente opciones al select (si es necesario)[m
+[31m-            const materias = ["Matemática", "Historia", "Programación", "Física", "Química"];[m
+[31m-            const selectMateria = document.getElementById("materia");[m
+[31m-[m
+[31m-            if (selectMateria) {[m
+[31m-                materias.forEach(materia => {[m
+[31m-                    const option = document.createElement("option");[m
+[31m-                    option.value = materia.toLowerCase(); // Valor en minúsculas[m
+[31m-                    option.textContent = materia; // Texto visible[m
+[31m-                    selectMateria.appendChild(option);[m
+[31m-                });[m
+[31m-            }[m
+[31m-        });[m
+[31m-   [m
+\ No newline at end of file[m
+[32m+[m[32m  // Configuración de Select2 para el campo de materias[m
+[32m+[m[32m  if (typeof $ !== "undefined" && $.fn.select2) {[m
+[32m+[m[32m    $("#materia").select2({[m
+[32m+[m[32m      placeholder: "Selecciona una materia",[m
+[32m+[m[32m      allowClear: true,[m
+[32m+[m[32m      width: "100%", // Asegura que el select ocupe todo el ancho disponible[m
+[32m+[m[32m    });[m
+[32m+[m[32m  }[m
+[32m+[m[32m});[m
+
+[33mcommit ffbad9f80b464b7c6eb89e55f937f9d3cf7547d1[m
+Author: Rroommannmmoyyanno <romanmoyano14@gmail.com>
+Date:   Mon Mar 31 19:32:10 2025 -0300
+
+    UNR Fase 1
+
+[1mdiff --git a/index.html b/index.html[m
+[1mnew file mode 100644[m
+[1mindex 0000000..7c76b3e[m
+[1m--- /dev/null[m
+[1m+++ b/index.html[m
+[36m@@ -0,0 +1,55 @@[m
+[32m+[m[32m<!DOCTYPE html>[m
+[32m+[m[32m<html lang="es">[m
+[32m+[m[32m  <head>[m
+[32m+[m[32m    <meta charset="UTF-8">[m
+[32m+[m[32m    <title>Registration Form</title>[m
+[32m+[m[32m    <!-- Estilos -->[m
+[32m+[m[32m    <link rel="stylesheet" href="styles.css" />[m
+[32m+[m[32m    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">[m
+[32m+[m[32m    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />[m
+[32m+[m
+[32m+[m[32m    <!-- Scripts -->[m
+[32m+[m[32m    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>[m
+[32m+[m[32m    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>[m
+[32m+[m[32m    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>[m
+[32m+[m[32m    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>[m
+[32m+[m[32m  </head>[m
+[32m+[m[32m  <body>[m
+[32m+[m[32m    <h1 class="university-name">[m
+[32m+[m[32m      <span class="unr">UNR</span>[m
+[32m+[m[32m      <span class="subtext">Universidad Nacional de Rosario</span>[m
+[32m+[m[32m    </h1>[m
+[32m+[m[32m    <h2 class="exam-title">Instituto Politécnico Superior 'Gral. San Martín'.</h2>[m
+[32m+[m
+[32m+[m[32m    <!-- Contenedor con la imagen de fondo y formulario encima -->[m
+[32m+[m[32m    <div class="image-container">[m
+[32m+[m[32m      <img src="https://fcpolit.unr.edu.ar/wp-content/uploads/2022/11/WhatsApp-Image-2022-11-07-at-11.34.04-1024x576.jpeg" alt="Imagen de fondo">[m
+[32m+[m[32m      <div class="form-overlay">[m
+[32m+[m[32m        <h2>Inscripción a Mesas de Examen</h2>[m
+[32m+[m[32m        <form>[m
+[32m+[m[32m          <label for="nombre">Nombre Completo:</label>[m
+[32m+[m[32m          <input type="text" id="nombre" name="nombre" required>[m
+[32m+[m
+[32m+[m[32m          <label for="dni">DNI:</label>[m
+[32m+[m[32m          <input type="text" id="dni" name="dni" required>[m
+[32m+[m
+[32m+[m[32m          <label for="materia">Selecciona la materia:</label>[m
+[32m+[m[32m          <select id="materia" name="materia">[m
+[32m+[m[32m              <option></option> <!-- Opción vacía para el placeholder -->[m
+[32m+[m[32m              <option value="matematica">Matemática</option>[m
+[32m+[m[32m              <option value="historia">Historia</option>[m
+[32m+[m[32m              <option value="programacion">Programación</option>[m
+[32m+[m[32m          </select>[m
+[32m+[m
+[32m+[m[32m          <label for="fecha">Selecciona la Fecha del Examen:</label>[m
+[32m+[m[32m          <input type="text" id="fecha" name="fecha" required>[m
+[32m+[m
+[32m+[m[32m          <button type="submit">Inscribirse</button>[m
+[32m+[m[32m        </form>[m
+[32m+[m[32m      </div>[m
+[32m+[m[32m    </div>[m
+[32m+[m
+[32m+[m[32m    <!-- Agrega el archivo JS justo antes de cerrar el body -->[m
+[32m+[m[32m    <script src="script.js"></script>[m
+[32m+[m[32m  </body>[m
+[32m+[m[32m</html>[m
+\ No newline at end of file[m
+[1mdiff --git a/node_modules/ajv/dist/ajv.bundle.js b/node_modules/ajv/dist/ajv.bundle.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e4d9d15[m
+[1m--- /dev/null[m
+[1m+++ b/node_modules/ajv/dist/ajv.bundle.js[m
+[36m@@ -0,0 +1,7189 @@[m
+[32m+[m[32m(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Ajv = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){[m
+[32m+[m[32m'use strict';[m
+[32m+[m
+[32m+[m
+[32m+[m[32mvar Cache = module.exports = function Cache() {[m
+[32m+[m[32m  this._cache = {};[m
+[32m+[m[32m};[m
+[32m+[m
+[32m+[m
+[32m+[m[32mCache.prototype.put = function Cache_put(key, value) {[m
+[32m+[m[32m  this._cache[key] = value;[m
+[32m+[m[32m};[m
+[32m+[m
+[32m+[m
+[32m+[m[32mCache.prototype.get = function Cache_get(key) {[m
+[32m+[m[32m  return this._cache[key];[m
+[32m+[m[32m};[m
+[32m+[m
+[32m+[m
+[32m+[m[32mCache.prototype.del = function Cache_del(key) {[m
+[32m+[m[32m  delete this._cache[key];[m
+[32m+[m[32m};[m
+[32m+[m
+[32m+[m
+[32m+[m[32mCache.prototype.clear = function Cache_clear() {[m
+[32m+[m[32m  this._cache = {};[m
+[32m+[m[32m};[m
+[32m+[m
+[32m+[m[32m},{}],2:[function(require,module,exports){[m
+[32m+[m[32m'use strict';[m
+[32m+[m
+[32m+[m[32mvar MissingRefError = require('./error_classes').MissingRef;[m
+[32m+[m
+[32m+[m[32mmodule.exports = compileAsync;[m
+[32m+[m
+[32m+[m
+[32m+[m[32m/**[m
+[32m+[m[32m * Creates validating function for passed schema with asynchronous loading of missing schemas.[m
+[32m+[m[32m * `loadSchema` option should be a function that accepts schema uri and returns promise that resolves with the schema.[m
+[32m+[m[32m * @this  Ajv[m
+[32m+[m[32m * @param {Object}   schema schema object[m
+[32m+[m[32m * @param {Boolean}  meta optional true to compile meta-schema; this parameter can be skipped[m
+[32m+[m[32m * @param {Function} callback an optional node-style callback, it is called with 2 parameters: error (or null) and validating function.[m
+[32m+[m[32m * @return {Promise} promise that resolves with a validating function.[m
+[32m+[m[32m */[m
+[32m+[m[32mfunction compileAsync(schema, meta, callback) {[m
+[32m+[m[32m  /* eslint no-shadow: 0 */[m
+[32m+[m[32m  /* global Promise */[m
+[32m+[m[32m  /* jshint validthis: true */[m
+[32m+[m[32m  var self = this;[m
+[32m+[m[32m  if (typeof this._opts.loadSchema != 'function')[m
+[32m+[m[32m    throw new Error('options.loadSchema should be a function');[m
+[32m+[m
+[32m+[m[32m  if (typeof meta == 'function') {[m
+[32m+[m[32m    callback = meta;[m
+[32m+[m[32m    meta = undefined;[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  var p = loadMetaSchemaOf(schema).then(function () {[m
+[32m+[m[32m    var schemaObj = self._addSchema(schema, undefined, meta);[m
+[32m+[m[32m    return schemaObj.validate || _compileAsync(schemaObj);[m
+[32m+[m[32m  });[m
+[32m+[m
+[32m+[m[32m  if (callback) {[m
+[32m+[m[32m    p.then([m
+[32m+[m[32m      function(v) { callback(null, v); },[m
+[32m+[m[32m      callback[m
+[32m+[m[32m    );[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  return p;[m
+[32m+[m
+[32m+[m
+[32m+[m[32m  function loadMetaSchemaOf(sch) {[m
+[32m+[m[32m    var $schema = sch.$schema;[m
+[32m+[m[32m    return $schema && !self.getSchema($schema)[m
+[32m+[m[32m            ? compileAsync.call(self, { $ref: $schema }, true)[m
+[32m+[m[32m            : Promise.resolve();[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m
+[32m+[m[32m  function _compileAsync(schemaObj) {[m
+[32m+[m[32m    try { return self._compile(schemaObj); }[m
+[32m+[m[32m    catch(e) {[m
+[32m+[m[32m      if (e instanceof MissingRefError) return loadMissingSchema(e);[m
+[32m+[m[32m      throw e;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m
+[32m+[m[32m    function loadMissingSchema(e) {[m
+[32m+[m[32m      var ref = e.missingSchema;[m
+[32m+[m[32m      if (added(ref)) throw new Error('Schema ' + ref + ' is loaded but ' + e.missingRef + ' cannot be resolved');[m
+[32m+[m
+[32m+[m[32m      var schemaPromise = self._loadingSchemas[ref];[m
+[32m+[m[32m      if (!schemaPromise) {[m
+[32m+[m[32m        schemaPromise = self._loadingSchemas[ref] = self._opts.loadSchema(ref);[m
+[32m+[m[32m        schemaPromise.then(removePromise, removePromise);[m
+[32m+[m[32m      }[m
+[32m+[m
+[32m+[m[32m      return schemaPromise.then(function (sch) {[m
+[32m+[m[32m        if (!added(ref)) {[m
+[32m+[m[32m          return loadMetaSchemaOf(sch).then(function () {[m
+[32m+[m[32m            if (!added(ref)) self.addSchema(sch, ref, undefined, meta);[m
+[32m+[m[32m          });[m
+[32m+[m[32m        }[m
+[32m+[m[32m      }).then(function() {[m
+[32m+[m[32m        return _compileAsync(schemaObj);[m
+[32m+[m[32m      });[m
+[32m+[m
+[32m+[m[32m      function removePromise() {[m
+[32m+[m[32m        delete self._loadingSchemas[ref];[m
+[32m+[m[32m      }[m
+[32m+[m
+[32m+[m[32m      function added(ref) {[m
+[32m+[m[32m        return self._refs[ref] || self._schemas[ref];[m
+[32m+[m[32m      }[m
+[32m+[m[32m    }[m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m},{"./error_classes":3}],3:[function(require,module,exports){[m
+[32m+[m[32m'use strict';[m
+[32m+[m
+[32m+[m[32mvar resolve = require('./resolve');[m
+[32m+[m
+[32m+[m[32mmodule.exports = {[m
+[32m+[m[32m  Validation: errorSubclass(ValidationError),[m
+[32m+[m[32m  MissingRef: errorSubclass(MissingRefError)[m
+[32m+[m[32m};[m
+[32m+[m
+[32m+[m
+[32m+[m[32mfunction ValidationError(errors) {[m
+[32m+[m[32m  this.message = 'validation failed';[m
+[32m+[m[32m  this.errors = errors;[m
+[32m+[m[32m  this.ajv = this.validation = true;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m
+[32m+[m[32mMissingRefError.message = function (baseId, ref) {[m
+[32m+[m[32m  return 'can\'t resolve reference ' + ref + ' from id ' + baseId;[m
+[32m+[m[32m};[m
+[32m+[m
+[32m+[m
+[32m+[m[32mfunction MissingRefError(baseId, ref, message) {[m
+[32m+[m[32m  this.message = message || MissingRefError.message(baseId, ref);[m
+[32m+[m[32m  this.missingRef = resolve.url(baseId, ref);[m
+[32m+[m[32m  this.missingSchema = resolve.normalizeId(resolve.fullPath(this.missingRef));[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m
+[32m+[m[32mfunction errorSubclass(Subclass) {[m
+[32m+[m[32m  Subclass.prototype = Object.create(Error.prototype);[m
+[32m+[m[32m  Subclass.prototype.constructor = Subclass;[m
+[32m+[m[32m  return Subclass;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m},{"./resolve":6}],4:[function(require,module,exports){[m
+[32m+[m[32m'use strict';[m
+[32m+[m
+[32m+[m[32mvar util = require('./util');[m
+[32m+[m
+[32m+[m[32mvar DATE = /^(\d\d\d\d)-(\d\d)-(\d\d)$/;[m
+[32m+[m[32mvar DAYS = [0,31,28,31,30,31,30,31,31,30,31,30,31];[m
+[32m+[m[32mvar TIME = /^(\d\d):(\d\d):(\d\d)(\.\d+)?(z|[+-]\d\d(?::?\d\d)?)?$/i;[m
+[32m+[m[32mvar HOSTNAME = /^(?=.{1,253}\.?$)[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[-0-9a-z]{0,61}[0-9a-z])?)*\.?$/i;[m
+[32m+[m[32mvar URI = /^(?:[a-z][a-z0-9+\-.]*:)(?:\/?\/(?:(?:[a-z0-9\-._~!$&'()*+,;=:]|%[0-9a-f]{2})*@)?(?:\[(?:(?:(?:(?:[0-9a-f]{1,4}:){6}|::(?:[0-9a-f]{1,4}:){5}|(?:[0-9a-f]{1,4})?::(?:[0-9a-f]{1,4}:){4}|(?:(?:[0-9a-f]{1,4}:){0,1}[0-9a-f]{1,4})?::(?:[0-9a-f]{1,4}:){3}|(?:(?:[0-9a-f]{1,4}:){0,2}[0-9a-f]{1,4})?::(?:[0-9a-f]{1,4}:){2}|(?:(?:[0-9a-f]{1,4}:){0,3}[0-9a-f]{1,4})?::[0-9a-f]{1,4}:|(?:(?:[0-9a-f]{1,4}:){0,4}[0-9a-f]{1,4})?::)(?:[0-9a-f]{1,4}:[0-9a-f]{1,4}|(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?))|(?:(?:[0-9a-f]{1,4}:){0,5}[0-9a-f]{1,4})?::[0-9a-f]{1,4}|(?:(?:[0-9a-f]{1,4}:){0,6}[0-9a-f]{1,4})?::)|[Vv][0-9a-f]+\.[a-z0-9\-._~!$&'()*+,;=:]+)\]|(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)|(?:[a-z0-9\-._~!$&'()*+,;=]|%[0-9a-f]{2})*)(?::\d*)?(?:\/(?:[a-z0-9\-._~!$&'()*+,;=:@]|%[0-9a-f]{2})*)*|\/(?:(?:[a-z0-9\-._~!$&'()*+,;=:@]|%[0-9a-f]{2})+(?:\/(?:[a-z0-9\-._~!$&'()*+,;=:@]|%[0-9a-f]{2})*)*)?|(?:[a-z0-9\-._~!$&'()*+,;=:@]|%[0-9a-f]{2})+(?:\/(?:[a-z0-9\-._~!$&'()*+,;=:@]|%[0-9a-f]{2})*)*)(?:\?(?:[a-z0-9\-._~!$&'()*+,;=:@/?]|%[0-9a-f]{2})*)?(?:#(?:[a-z0-9\-._~!$&'()*+,;=:@/
