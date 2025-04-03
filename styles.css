@@ -5,6 +5,10 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow-x: hidden; /* Evita scroll lateral */
 }
 
 .image-container {
@@ -24,14 +28,13 @@ body {
 }
 
 .form-overlay {
-  background-color: rgba(44, 62, 80, 0.85);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  background-color: rgba(44, 62, 80, 0.95); /* Fondo oscuro con opacidad */
+  position: relative; /* Cambiado de absolute a relative */
   padding: 25px;
   border-radius: 12px;
   width: 90%;
+  max-width: 400px; /* Limita el ancho máximo */
+  margin: 20px auto; /* Centra el formulario */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -45,9 +48,9 @@ body {
 
 .form-overlay input,
 .form-overlay select {
-  width: 70%;
+  width: 100%; /* Ajusta el ancho al contenedor */
   padding: 12px;
-  margin: 10px;
+  margin: 10px 0;
   border: 2px solid #566573; /* Borde oscuro */
   border-radius: 8px;
   font-size: 16px;
@@ -97,6 +100,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .subtext {
@@ -113,6 +117,7 @@ body {
   color: white;
   text-align: center;
   margin-top: -10px;
+  margin-bottom: 20px;
 }
 
 .select2-container {
@@ -125,11 +130,11 @@ body {
   background-color: #ffffff; /* Fondo blanco */
   border: 2px solid #566573; /* Borde oscuro */
   border-radius: 8px; /* Bordes redondeados */
-  padding: 80 12px; /* Espaciado interno */
+  padding: 8px 12px; /* Espaciado interno */
   color: black; /* Color del texto */
   font-size: 16px; /* Tamaño del texto */
-  font-weight: bold; /* Grosor del texto */
-  height: 150px; /* Aumenta la altura del cuadro */
+  font-weight: normal; /* Grosor del texto */
+  height: auto; /* Ajusta la altura automáticamente */
   display: flex; /* Asegura que los elementos internos estén alineados */
   align-items: center; /* Centra verticalmente los elementos */
   transition: all 0.3s ease; /* Transición suave */
@@ -228,12 +233,9 @@ body {
 }
 
 .form-container {
-  max-width: 90%; /* Para que no sea más ancho que la pantalla */
-  width: 400px; /* Ajusta según necesidad */
-  margin: 0 auto; /* Centra el formulario */
-}
-body {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  max-width: 90vw; /* Se ajusta al ancho de la pantalla */
+  width: 100%; /* Usa todo el espacio disponible */
+  padding: 20px; /* Añade espacio interno */
+  box-sizing: border-box; /* Evita que el padding agrande el contenedor */
+  margin: 0 auto; /* Centra el formulario horizontalmente */
 }
