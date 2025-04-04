@@ -1,10 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Configuración de Select2 para el campo de materias
+  // Inicializar Select2
   if (typeof $ !== "undefined" && $.fn.select2) {
     $("#materia").select2({
       placeholder: "Selecciona una materia",
       allowClear: true,
-      width: "100%", // Asegura que el select ocupe todo el ancho disponible
+      width: "100%",
     });
   }
+
+  // Inicializar Flatpickr
+  flatpickr("#fecha", {
+    locale: "es",
+    dateFormat: "d-m-Y",
+  });
 });
