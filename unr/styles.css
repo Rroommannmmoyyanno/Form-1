@@ -1,0 +1,178 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: url("https://fcpolit.unr.edu.ar/wp-content/uploads/2022/11/WhatsApp-Image-2022-11-07-at-11.34.04-1024x576.jpeg")
+    no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.titulo-universidad {
+  text-align: center;
+  color: white;
+  margin: 30px 10px 10px 10px;
+}
+
+.titulo-universidad h1 {
+  font-size: 32px;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.titulo-universidad h2 {
+  font-size: 18px;
+  margin: 5px 0;
+  font-weight: 300;
+}
+
+.contenedor-formulario {
+  width: 90%;
+  max-width: 600px;
+  background-color: rgba(44, 62, 80, 0.9);
+  padding: 25px;
+  margin: 20px auto 40px auto;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contenedor-formulario h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 22px;
+}
+
+.materia-seleccionada {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #34495e;
+  color: white;
+  border-radius: 8px;
+  font-size: 18px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  display: block;
+  width: 100%;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+input,
+select,
+button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+}
+
+input,
+select {
+  background: #2c3e50;
+  color: white;
+  border: 2px solid #566573;
+}
+
+input:focus,
+select:focus {
+  border-color: #1abc9c;
+  outline: none;
+  box-shadow: 0px 0px 8px rgba(26, 188, 156, 0.6);
+}
+
+button {
+  background-color: #1abc9c;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #16a085;
+}
+
+@media (max-width: 600px) {
+  .titulo-universidad h1 {
+    font-size: 26px;
+  }
+
+  .titulo-universidad h2 {
+    font-size: 16px;
+  }
+
+  .contenedor-formulario {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 320px) {
+  body {
+    padding: 10px;
+  }
+
+  .contenedor-formulario {
+    padding: 15px;
+  }
+
+  .titulo-universidad h1 {
+    font-size: 20px;
+  }
+
+  .titulo-universidad h2 {
+    font-size: 14px;
+  }
+
+  .formulario-inscripcion input,
+  .formulario-inscripcion select,
+  .formulario-inscripcion button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 280px) {
+  body {
+    padding: 5px;
+  }
+
+  .contenedor-formulario {
+    padding: 10px;
+  }
+
+  .titulo-universidad h1 {
+    font-size: 18px;
+  }
+
+  .titulo-universidad h2 {
+    font-size: 12px;
+  }
+
+  input,
+  select,
+  button {
+    font-size: 12px;
+    padding: 8px;
+  }
+}

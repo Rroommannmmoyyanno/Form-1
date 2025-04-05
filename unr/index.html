@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Formulario de Inscripción</title>
+
+    <!-- Estilos externos -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Scripts externos -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
+  </head>
+
+  <body>
+    <div class="titulo-universidad">
+      <h1>Universidad Nacional</h1>
+      <h2>Facultad de Ciencias Políticas</h2>
+    </div>
+
+    <div class="contenedor-formulario">
+      <h2>Formulario de Inscripción</h2>
+      <form class="formulario-inscripcion">
+        <label for="nombre">Nombre:</label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          placeholder="Ingresa tu nombre"
+        />
+
+        <label for="dni">DNI:</label>
+        <input type="text" id="dni" name="dni" required />
+
+        <label for="materia">Selecciona una materia:</label>
+        <select id="materia" name="materia" required>
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option value="matematica">Matemática</option>
+          <option value="fisica">Física</option>
+          <option value="quimica">Química</option>
+          <option value="biologia">Biología</option>
+          <option value="historia">Historia</option>
+          <option value="geografia">Geografía</option>
+          <option value="literatura">Literatura</option>
+          <option value="ingles">Inglés</option>
+          <option value="arte">Arte</option>
+          <option value="informatica">Informática</option>
+        </select>
+
+        <label for="fecha">Fecha del Examen:</label>
+        <input type="text" id="fecha" name="fecha" required />
+
+        <div class="materia-seleccionada">Materia seleccionada: Matemática</div>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
